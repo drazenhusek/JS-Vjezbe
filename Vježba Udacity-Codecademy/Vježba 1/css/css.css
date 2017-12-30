@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+section{
+    height: 400px;
+    background-color: greenyellow;
+    text-align: center;
+}
+section h1{
+   padding-top: 30px;
+   padding-bottom: 30px;
+}
+article{
+    height: 500px;
+    background-color: #C0A0A0;
+}
+form{
+    position: relative;
+    top:100px;
+    text-align: center;
+}
+form p{
+    padding-right: 10px;
+    display: inline;
+}
+
+input[type=text]{
+    background-color: #F18C8C;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 200px;
+}
+input[type=button]{
+    background-color: #F18C8C;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+textarea {
+    width: 500px;
+    height: 150px;
+    padding: 12px 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+.textbox{
+    text-align: center;
+    display: block;
+}
+input[type=checkbox]+label{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.box{
+    display: inline;
+    margin: 5px;
+}
+
+/*donja contract forma*/
+.box1{
+    margin:10px;
+    display:block;
+}
+.box2{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: inline-block;
+    margin-left:10px; 
+}
+.boxcheck{
+    margin: 10px;
+}
+.contract{
+    height: 700px;
+    background-color: #7D5050;
+}

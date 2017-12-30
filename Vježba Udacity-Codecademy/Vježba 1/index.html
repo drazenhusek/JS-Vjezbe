@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/css.css">
+    <title>JS Vježbe</title>
+
+<!-- Izrada forme koja ovisno o izboru odgovara i sklapa odgovor.-->
+</head>
+<body>
+    <!--
+    <article class="contract">
+        <form>
+            <p> Contract my </p>
+            <div class="box1">
+            <label for="name">First name: </label>
+                <input type="text" id="firstname">
+            </div>
+            <div class="box1">
+            <label for="name">Last name: </label>
+                <input type="text" id="lastname">
+            </div>  
+            <div class="box1">
+            <label for="name">E-mail: </label>
+                <input type="text" id="email">
+            </div>
+            <p>Purpos of contracting</p>
+            <div class="boxcheck">
+                <div class="box2">
+                <label for="contractpurpos">Klijent</label>
+                <input type="checkbox" id="klijent" onclick="checkname()" name="razlog">
+                </div>
+                <div class="box2">
+                <label for="contractpurpos">Poslovni partner</label>
+                <input type="checkbox" id="partner" onclick="checkname()" name="razlog">
+                </div>
+            </div>
+            <div class="box1">
+                    <label for="Companyname">Company name: </label>
+                        <input type="text" id="companyname" class="companyname">
+            </div>
+            <div class="box1">
+            <input type="button" value="Submit" onclick="novi()">
+            </div>
+            <div class="textbox">
+            <textarea id="textbox2"></textarea>
+            </div>
+        </form>
+    </article>
+-->
+<section class="clothes">
+    <h4>Clothes in the closet</h4>
+    <div id="buttons">
+    <input type="radio" name="type" onclick="" value="Sport"> Sport </input>
+    <input type="radio" name="type" onclick="" value="Casual" checked> Casual </input>
+    <input type="radio" name="type" onclick="" value="Formal"> Formal </input>
+    </div>
+    <select id="select" onchange="">
+            <option value="Shirt" name="item" onclick="" checked>Shirt</option>
+            <option value="Hose" name="item" onclick="">Hose</option>
+            <option value="Shoes" name="item" onclick="">Shoes</option>
+            <option value="Jacket" name="item" onclick="">Jacket</option>
+    </select> 
+
+    <div class="box1">
+            <label for="color">Color: </label>
+                <input type="text" id="Color">
+    </div>  
+    <div class="box1">
+            <label for="size">Size: </label>
+                <input type="text" id="Size">
+    </div> 
+    <div class="box1">
+            <label for="brand">Brand: </label>
+                <input type="text" id="Brand">
+    </div> 
+    <div class="send">
+        <input type="button" value="Send" onclick="send()">
+    </div>
+</section>
+<script>
+    class Clothes{
+        constructor(item, color, size, brand, style){
+            this.item = item;
+            this.color = color;
+            this.size = size;
+            this.brand = brand;
+            this.style = style;
+        }
+    }
+    class Shirt extends Clothes{
+        constructor(item, color, size, brand, style){
+            super(item, color, size, brand, style);
+        }
+
+    }
+    class Hose extends Clothes{
+        constructor(item, color, size, brand, style){
+            super(item, color, size, brand, style);
+        }
+
+    }
+    class Shoes extends Clothes{
+        constructor(item, color, size, brand, style){
+            super(item, color, size, brand, style);
+        }
+
+    }
+    class Jacket extends Clothes{
+        constructor(item, color, size, brand, style){
+            super(item, color, size, brand, style);
+        }
+
+    }
+    const enter1 = new Shirt("Shirt", "red", 46, "H&M", "Casual");
+    const enter2 = new Shoes("Shoes", "red", 42, "H&M", "Casual");
+    const enter3 = new Hose("Hose", "red", 46, "H&M", "Casual");
+    const enter4 = new Jacket("Jacket", "red", 46, "H&M", "Casual");
+    const enter5 = new Shirt("Shirt", "green", 46, "p&c", "Casual");
+    const enter6 = new Shoes("Shoes", "green", 42, "p&c", "Casual");
+    const enter7 = new Hose("Hose", "green", 46, "p&c", "Casual");
+    const enter8 = new Jacket("Jacket", "green", 46, "p&c", "Casual");
+
+
+console.log(enter5);
+
+
+
+
+//DOHVAČANJE IZ optiona, checboxa i dropdown je različito.
+//select-option dohvačam s document.getElementById("select").value izbacit će odabranu
+//radio button dohvačam s document.getElementsByName("type"); i onda provjeravam za svaki
+// je li oznaćen, mogu s if li s form petljom
+//checbox dohvačam s document.getElementById("klijent").checked;  vrača mi se boolen
+    function send(){
+//Dohvačam infirmacije koje su upisane u kućice color, size i brand. S getElementById
+        let color = document.getElementById("Color").value;
+        let size = document.getElementById("Size").value;
+        let brand = document.getElementById("Brand").value;
+
+//dohvačam kod radio buttona, sve pod istim imenom type, a to su svi unutra,
+//potom provjeravam koji od navedenih je oznaćen s if provjerom i vraćam tip =string
+        function func(){
+            let type = document.getElementsByName("type");
+            if(type[0].checked)
+            {
+                //alert("Sport");
+                return tip = "Sport"; 
+            }
+            else if(type[1].checked)
+            {
+                //alert("Casual");
+                return tip = "Casual";
+            }
+            else if(type[2].checked)
+            {
+                //alert("Formal");
+                return tip = "Formal";
+            }
+        }
+        let tipe=func();
+
+//Ova funkcija dohvača vrijednosti od elementa select, a to su svi koji se nalaze unutra
+//ima nekoliko option, value dohvača samo onu koja je trenutno označena
+function items(){
+            let item = document.getElementById("select").value;
+            if(item==="Shirt"){
+                //console.log(item);
+            return item;
+            }
+            else if(item==="Hose"){
+                //console.log(item);
+            return item;
+            }
+            else if(item==="Shoes"){
+                //console.log(item);
+            return item;
+            }
+            else if(item==="Jacket"){
+                //console.log(item);
+            return item;
+            }
+        }
+        let item = items();
+        
+        console.log(tipe, item, color, size, brand);
+        if(item==="Shirt"){
+ //           item, color, size, brand, style
+            const enter = new Shirt(item, color, size, brand, tipe);
+                console.log(enter.size);
+            return enter;
+            }
+            else if(item==="Hose"){
+                const enter = new Hose(item, color, size, brand, tipe);
+                console.log(enter.color);
+            return enter;
+                //console.log(item);
+            }
+            else if(item==="Shoes"){
+                //console.log(item);
+                const enter = new Shoes(item, color, size, brand, tipe);
+                console.log(enter.brand);
+            return enter;
+            }
+            else if(item==="Jacket"){
+                //console.log(item);
+                const enter = new Jacket(item, color, size, brand, tipe);
+                console.log(enter);
+            return enter;
+            }
+       // yield;
+            
+    }
+    //console.log(Clothes);
+    //console.log(shirt);
+    //console.log(hose);
+    //console.log(shoes);
+    //console.log(jacket);
+    //let style = document.getElementById("select").value;
+    //console.log(style);
+    //let button = document.getElementById("button").value;
+   // console.log(button);
+
+
+</script>
+<!-- Vježba napraviti program koji uključuje default u funkciji, koristi objekte s 
+klasama i superklasama, zajedno s Symbolima, uvrsti Sets i Maps, i Proxi, Promises
+i Generatore. 
+default - mogu ubaciti recimo u običnu funkciju za ime i prezime ako ga ne upišeš 
+        program vrati neko defaultno ime.
+symbol - napraviti trgovinu sa sličnim proizvodima + izradi kao webshop stranicu da
+        klikam na slikice recimo 1 artikl s više boja, (klasa superklasa)
+        ili nešto kao banane razlika u simbolima, razlika da budeu težini, boji
+Sets and Maps 
+    recimo popis alata i iz tog popisa izaeberem što ću koristiti, mogu na istu dodati
+    nove alate ali ako su već upisani neće se stvoriti novi.
+Generatori neki program koji ću zaustaviti
+Proxis - Presretač - možda ako je upisano neko ime, koje mogu recimo zabraniti da se javi i napiše
+        ovaj korisnik nema pravo pristupa.
+Promise - asinkrono odvijanje posla, komplicirano
+
+Program za odjeću, ima upisanu default kombinaciju za hlače, majcu, cipele i čarape.
+Symbole mogu iskoristiti za razlikovanje više bijelih košulja.
+Kada izaberem kombinaciju mogu tu kombinaciju spremiti u Maps, tako i sljedeću, ali 
+sve su različite, ako slućajno bude ista nju ne upisujem već javim ovaj kombinacija je
+već upisana.
+Presretač može presresti poruku koju šaljem i provjeriti da li se neki komad odjeće
+pere pa ga izbaciti iz kombinacije ili oznaćim komad odječe koji definitivno ne želim
+obući taj dan.
+
+
+-->
+</body>
+<!--
+<script id="contract">
+    function novi(){
+    class Contract {
+        constructor(name, last, email){
+            this._name=name;
+            this._last=last;
+            this._email=email;
+        }
+        get name() {
+        return this._name;
+        }
+        get last() {
+    	return this._last;
+        }
+        get email() {
+    	return this._email;
+  	    }
+    }
+
+    class Client extends Contract{
+        constructor(name,last,email){
+        super(name, last, email);
+        }
+    }
+
+    class Partner extends Contract{
+        constructor(name,last,email, companyname){
+            super(name, last, email);
+            this._companyname = companyname;
+            }
+        
+    }
+    var ime = document.getElementById('firstname').value;
+    var prezime = document.getElementById('lastname').value;
+    var e_mail = document.getElementById('email').value;
+    var tvrtka = document.getElementById("companyname").value;
+    var partnercheck = document.getElementById("partner").checked;
+    var klijentcheck = document.getElementById("klijent").checked;
+   
+  
+
+        if(klijentcheck === true && partnercheck === true){
+            const irskiklijent = new Client(ime,prezime,e_mail);
+            const novipartner = new Partner(ime,prezime,e_mail,tvrtka); 
+            document.getElementById("textbox2").value = "Upisali ste se u bazu kao klijent i partner vaši podaci su:"
+            +irskiklijent._name+" "+irskiklijent._last+" a mail adresa je "+irskiklijent._email;
+            console.log(irskiklijent);
+            console.log(novipartner);
+        } else if(klijentcheck === true) {
+            const irskiklijent = new Client(ime,prezime,e_mail);
+            document.getElementById("textbox2").value = "Upisali ste se u bazu kao klijent vaši podaci su:"
+            +irskiklijent._name+" "+irskiklijent._last+" a mail adresa je "+irskiklijent._email;
+            //console.log(irskiklijent);
+        } else if(partnercheck === true){
+            const novipartner = new Partner(ime,prezime,e_mail,tvrtka);
+            document.getElementById("textbox2").value = `Upisali ste se u bazu kao partner vaši podaci su:ime ${novipartner._name} prezime ${novipartner._last} s email adresom ${novipartner._email} iz tvrtke ${novipartner._companyname}`;
+            console.log(novipartner);
+        } 
+ 
+    console.log(klijentcheck);
+    console.log(partnercheck);
+    
+
+    }
+    function checkname(){
+        var partnercheck = document.getElementById("partner").checked;
+        var klijentcheck = document.getElementById("klijent").checked;
+        if(klijentcheck === true && partnercheck === true){
+            document.getElementById("textbox2").value = "Označen je klijent i partner.";
+            document.getElementById("companyname").disabled = false;
+        } else if(klijentcheck === true) {
+            document.getElementById("companyname").disabled = true;
+            document.getElementById("textbox2").value = "Označen je klijent.";
+
+        } else if(partnercheck === true){
+            document.getElementById("textbox2").value = "Označen je partner.";
+            document.getElementById("companyname").disabled = false;
+        } else {
+            document.getElementById("textbox2").value = "Pick one Purpose of contracting my.";
+            document.getElementById("companyname").disabled = false; 
+        }
+    }
+
+</script>
+-->
+</html>
