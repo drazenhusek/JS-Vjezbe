@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/css.css">
+    <title>Mango</title>
+</head>
+<!-- Poziv funkcije da prikazem ili sakrijem sekciju, mjenjam stil, a pozivam s
+onmousover i onmouseout -->
+<script>
+        function pokazi(){
+            document.getElementById('divpadajuci').style.display = 'block';
+            }
+        function sakrij(){
+            document.getElementById('divpadajuci').style.display = 'none';
+        }
+</script>
+<body>
+    <section class="discaunt">
+        <h4>Dodatnih 25 posto popusta na odjeću!</h4>
+    </section>
+    <section class="navbar-prvi">
+            <div class="trazi">
+                <i class="fa fa-search"></i>
+                <p>Traži</p>
+            </div>
+            <div class="izbornik-prvi">
+                <ul>
+                    <li>Registrirajte se</li><p>|</p>
+                    <li>Prijava</li><p>|</p>
+                    <li>Narudžbe</li><p>|</p>
+                    <li>Pomoć</li><p>|</p>
+                    <li><i class="fa fa-briefcase"></i></li>
+                </ul>
+            </div>
+    </section>
+    <section class="navbar-drugi">
+            <div class="logo">
+                <img src="images/66.png" alt="" srcset="">
+            </div>
+            <ul class="izbornik-dva">
+                <li onmouseover="pokazi()" onmouseout="sakrij()">Žene</li>
+                <li onmouseover="pokazi()" onmouseout="sakrij()">Muškarci</li>
+                <li onmouseover="pokazi()" onmouseout="sakrij()">Djevojčice</li>
+                <li onmouseover="pokazi()" onmouseout="sakrij()">Dječaci</li>
+                <li onmouseover="pokazi()" onmouseout="sakrij()">Plus size veličine</li>
+            </ul>
+    </section>
+    <section id="divpadajuci" class="padajuci">
+            <ul>
+                <li>Raspordaja</li>
+
+            </ul>
+    </section>
+    <section class="wall">
+        <div class="content">
+        <h3>Zimska rasprodaja</h3>
+        <h1> Do 70% sniženo</h1>
+        <input type="button" value="Kupujte sada">
+        <p>*Rasprodaja se odnosi na artikle koji započinju sa 7.</p>
+        </div>
+    </section>
+
+    <section class="sale">
+        <div class="grid-a">
+            <div class="item-0">
+                <h3>Naši najbolji stilovi na rasprodaji</h3>
+                <p>Otkrijte sve modne artikle kojima možete upotpuniti svoju garderobu</p>
+            </div>
+            <div class="item-1">
+                <div class="images">
+                <img class="img" src="images/outlet_rebajasdiciembrehe_prenda1.jpg">
+                </div>
+                <p>Košulja od <b>120 kn</b></p>
+            </div>
+            <div class="item-2">
+                    <div class="images">
+                    <img class="img" src="images/outlet_rebajasdiciembrehe_prenda2.jpg">
+                    </div>
+                    <p>Cipele od <b>150 kn</b></p>
+                    
+            </div>
+            <div class="item-3">
+                    <div class="images">
+                    <img class="img" src="images/outlet_rebajasdiciembrehe_prenda3.jpg">
+                    </div>
+                    <p>Hlače od <b>150 kn</b></p>
+                    
+            </div>
+            <div class="item-4">
+                    <div class="images">
+                    <img class="img" src="images/outlet_rebajasdiciembrehe_prenda4.jpg">
+                    </div>
+                    <p>Sakoi od <b>190 kn</b></p>
+                    
+            </div>
+        </div>
+    </section>
+
+    <section class="info-grid">
+        <div class="isporuka">
+            <img src="images/priv_troubleshooting_featured.png" alt="" class="info-slike">
+            <h3>Isporuka</h3>
+            <p>Standardna isporuka od 5 do 7 radnih dana</p>
+        </div>
+        <div class="placanje">
+            <img src="images/priv_troubleshooting_featured.png" alt="" class="info-slike">
+            <h3>Način plačanja</h3>
+            <p>Odaberite između različitih načina plaćanja</p>
+        </div>
+        <div class="povrati">
+            <img src="images/priv_troubleshooting_featured.png" alt="" class="info-slike">
+            <h3>Povrati</h3>
+            <p>Povrat putem poš</p>
+        </div>
+    </section>
+    <section class="newsletter-grid">
+            <div class="newsletter">
+            <h2>newsletter</h2>
+            <p>Pretplatite se na naš 
+               newsletter i ne propustite naše ekskluzivne ponude i promocije.
+            </p>
+            </div>
+            <div class="email">
+            <input type="email" name="" id="" value="Unesite svoju adresu e-pošte">
+            </div>
+            <div class="email-button">
+            <input type="button" value="Prijavi se" class="newsletter-button">
+            </div>
+    </section>
+    <section class="jezici">
+        <div class="jezici-float">
+        <div class="drzava">
+        <a href="http://" class="link-velika">Hrvatska</a> <a href="">|</a> 
+        </div>      
+        <div class="dropdown">
+        <a href="http://" class="droplink">Hrvatski</a>
+        <div class="dropdown-content">
+        <a href="#">Engleski</a>
+        </div>
+        </div>
+        </div>
+    </section>
+    <section class="general-info">
+        <div class="pomoc">
+            	<ul>
+                    <h3>Pomoć</h3>
+                    <li><a href="http://">Često postavljana pitanja</a></li>
+                    <li><a href="http://">Narudžbe</a></li>
+                    <li><a href="http://">Isporuka</a></li>
+                    <li><a href="http://">Način plaćanja</a></li>
+                    <li><a href="http://">Povrati</a></li>
+                </ul>
+        </div>
+        <div class="marke">
+            	<ul>
+                        <h3>Marke</h3>
+                        <li><a href="http://">Mango</a></li>
+                        <li><a href="http://">Mango outlet</a></li>
+                    </ul>
+
+        </div>
+        <div class="tvrtka">
+            	<ul>
+                        <h3>Tvrtka</h3>
+                        <li><a href="http://">Tvrtka</a></li>
+                        <li><a href="http://">Radite za Magno</a></li>
+                    </ul>
+        </div>
+    </section>
+    <footer>
+        <div class="loga-placanja">
+            <img src="images/visa@2x.png" alt="">
+            <img src="images/visaelectron@2x.png" alt="">
+            <img src="images/mc@2x.png" alt="">
+            <img src="images/contrarembolso_HR@2x.png" alt="">
+        </div>
+        <div class="prava-copy">
+            <ul>
+                <li>2017 MANGO Sva prava pridržana</li>
+                <li> </li>
+                <li>
+                    <a href="http://">Pravila o zaštiti privatnosti</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="http://"> Uvjeti i odredbe</a>
+                </li>
+            </ul>
+        </div>
+        <div class="geotrust">
+            <img src="images/geotrust@2x.png" alt="">
+        </div>
+    </footer>
+
+</body>
+
+</html>

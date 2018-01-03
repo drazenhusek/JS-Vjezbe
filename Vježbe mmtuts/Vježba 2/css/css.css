@@ -1,0 +1,760 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/*Uređenje prvog odlomka*/
+.discaunt{
+    min-width: 400px;
+    height: 26px;
+    background-color: #FF4242;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding-top: 6px;
+}
+.discaunt h4{
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/*Uređenje prvog izbornika tražilice i registrcije*/
+.navbar-prvi{
+    display: none;
+    height: 40px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 10px;
+    line-height: 1.42857143;
+    color: #333;
+    letter-spacing: 1px;
+    font-weight: bold;
+    position: relative;
+    min-width: 500px;
+}
+.trazi{
+    display: inline;
+    float: left;
+    cursor: pointer;
+}
+.trazi:hover{
+    color:gray;
+}
+.trazi p{
+    display: inline;
+}
+.izbornik-prvi{
+    display: inline;
+    float: right;
+}
+.izbornik-prvi li{
+    display: inline-block;
+    padding-left:4px;
+    padding-right: 4px;
+    cursor: pointer;
+}
+.izbornik-prvi li:hover{
+    color:gray;
+}
+.izbornik-prvi p{
+    display: inline;
+}
+.fa{
+    font-size: 14px;
+}
+.fa-briefcase{
+    position: relative;
+    top: 1.5px;
+}
+/*Uređenje drugog izbornika glavnog, Mango Outlet*/
+.navbar-drugi{
+    display: none;
+    text-align: center;
+    min-width: 550px;
+}
+.logo{
+    margin-top:5px;
+    
+}
+.izbornik-dva li{
+    display: inline-block;
+    padding: 1px;
+    margin-left:25px; 
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #333;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 1px solid #FFFFFF;
+}
+.izbornik-dva li:hover{
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+}
+/*Padajuči izbornici*/
+.padajuci{
+    display: none;
+    position: absolute;
+    height: 500px;
+    width: 100%;
+    background-color: #FF5052;
+    z-index: 10;
+}
+
+
+/*Naslovnica uređenje njenog stila i postavljanje pozadine, dodan kod da se slika
+cropa s obje strane a ne samo s lijeve tako da na kraju ostane samo centar slike.
+SLIKU je potrebno staviti na center, cover, a ako želim da kada se povečava da gornji
+dio ostane bez da se ženi glava odreže stavljam position 50% 10% to znaći da se dolje
+širi a gore samo 15%*/
+.content {
+    text-align: center;
+    min-height: 550px;
+    font-family: sans-serif;
+    background-image: url(../images/thumb-1920-568980.jpg);
+    background-position: center;
+    background-size: cover;
+    background-position: 50% 15%;
+  }
+/*Kada slika pređe 1000 počne se previše povečavati zato sam odredio da
+nakon te velićine bude contain što znaći da se ponavlja ako nestane
+Ovo bi bilo najbolje ispuniti s pozadinom neke boje.*/
+/*@media only screen and (min-width: 1000px) {
+    .content {
+        background-image: url(../images/thumb-1920-568980.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: #DE8888;
+        background-position: top;
+    }
+}*/
+.content h1{
+    height: 200px;
+    line-height: 100px;
+    text-transform: uppercase;
+    font-size: 66px;
+    font-weight: bold;
+    position: relative;
+    top: 200px;
+    color: white;
+    width: 100%;
+}
+.content h3{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    top:180px;
+    text-transform: uppercase;
+}
+.content input{
+    position: relative;
+    top:230px;
+    padding: 12px;
+    width: 150px;
+    color: #FF4545;
+    font-weight: bold;
+    background-color: white;
+    border: 0 none;
+}
+.content input a{
+    color: #FF4545;
+    font-weight: bold;
+}
+.content input:hover{
+    background-color: #FF4444;
+    color: #FFFFFF;
+}
+.content p{
+    font-size: 10px;
+    text-transform: lowercase;
+    position: relative;
+    top: 275px;
+    color: white;
+}
+/*Uređenje sale sekcije sekcija ima grid, i ima tranziciju slika bez owerflova.
+Tu sam se zezao s owerflowom samo u boksu*/
+.sale{
+    margin: 50px;
+}
+.grid-a{
+    display: grid;
+    justify-content: center; /*Ovo centrira content cijeli grid u sredinu div sale*/
+    grid-template: repeat(5, 1fr);
+    grid-template-areas: 
+    "item-0"
+    "item-1" 
+    "item-2"
+    "item-3"
+    "item-4";
+    grid-gap: 20px;
+    text-transform: uppercase;
+    color:#FF4444;
+   /* margin-left: auto;  /*centriranje na sredinu cijelog grida*
+    margin-right: auto; */
+}
+/*Postavljam veličinu slike, vrijeme tranzicije a potom na prelet povečanje, box 
+images mora biti relativan i bez owerflowa.
+PROBLEM ostaje prazno mjesto u boxu iako mu stavim height 100%.
+Fora je u tome da ako želim postaviti visinu da ispunjava slika vije div u kojem
+se nalazi potrebno je postaviti velićinu tog boxa u px, no ako to stavim onda nije
+fixni grid a slike nisu sve iste visine ili širine.
+RJEŠENJE mogu postaviti div u kojem se nalazi slika img, na height 100%,
+i img isto postavim na height 100% no ako nije preširoko neće popunit i width
+postavljanem width na 100% slika prekrije cijeli box ali bude malo deformirana.
+*/
+.img {
+    transition: all 2s ease;
+    border: 1px solid red;
+    width: 100%;
+    transform: scale(1.0);
+}
+.img:hover{
+    -moz-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+.images{
+    overflow: hidden;
+    
+}
+.item-0{
+    grid-area:item-0;
+    text-align: center;
+    color:#FF4444;
+}
+.item-0 h3{
+    text-transform: uppercase;
+    font-family: Gotham-Black, "Arial Black";
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    color: #FF5052;
+}
+.item-0 p{
+    text-transform: lowercase;
+    font-family: Gotham-Book, Arial;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    color: #FF5052;
+}
+/*Samo prvo slovo treba biti veliko*/
+.item-0 p:first-letter{
+    text-transform: uppercase;
+}
+.item-1{
+    border: 1px solid blue;
+    grid-area:item-1;
+    cursor: pointer;
+    
+}
+.item-2{
+    grid-area:item-2;
+    cursor: pointer;
+}
+.item-3{
+    grid-area:item-3;
+    cursor: pointer;    
+}
+.item-4{
+    grid-area:item-4;
+    cursor: pointer;
+}
+
+
+/*Grid info sekcije*/
+.info-grid{
+    display: grid;
+    grid-template-rows: repeat(3,1);
+    grid-gap: 30px;
+    grid-template-areas:
+    "isporuka"
+    "placanje"
+    "povrat"; 
+    margin: 30px;
+    text-align: center;
+}
+.isporuka{
+    grid-area:isporuka;
+    cursor: pointer;
+}
+.placanje{
+    grid-area:placanje;
+    cursor: pointer;
+}
+.povrati{
+    grid-area:povrat;
+    cursor: pointer;
+}
+.info-slike{
+    width: 30%;
+}
+.info-grid h3{
+    text-transform: uppercase;
+    color: #272626;
+    letter-spacing: 1px;
+    padding: 10px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #494848;
+}
+.info-grid p{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #4D4D4D;
+}
+/*Grid newsleter sekcije*/
+.newsletter-grid{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-columns: 1fr 1fr;
+    grid-template-areas: 
+    "newsletter"
+    "email" 
+    "email-button";
+    margin: 100px 10px 100px 10px;
+    max-width: 700px;
+    justify-content: center;
+}
+.newsletter{
+    text-align: center;
+    grid-area: newsletter;
+    margin-bottom: 10px;
+}
+.email{
+    grid-area: email;
+    margin: auto;
+}
+.email-button{
+    grid-area: email-button;
+    margin: auto;
+}
+.newsletter h2{
+    text-transform: uppercase;
+    color: #272626;
+    letter-spacing: 2px;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+}
+.newsletter p{
+    color: #272626;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+}
+input[type=email]{
+    width: 300px;
+    padding: 10px;
+    color: gray;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+input[type=button]{
+    width: 250px;
+    padding: 10px;
+    background-color: black;
+    border: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 12px; 
+    color:white;
+}
+/*Div jezici uređenje*/
+.jezici-float{
+    float: right;
+    padding-top: 15px;
+}
+.jezici{
+    margin: 0px 0px 100px 0px;
+    border-top: 1px dotted gray;
+    color: gray;
+    text-decoration: none;
+    color:gray;
+}
+.jezici a{
+    text-decoration: none;
+    color:gray;
+    font-size: 13px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: 0.1px;
+    
+}
+.drzava{
+    display: inline-block;
+    text-transform: uppercase;
+}
+.drzava a:hover{
+    color: #333;
+}
+/*Padajuči izbornik*/
+.dropdown{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+.dropdown a:hover{
+    color: #333;
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+.droplink {
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+/*Grid za general-info ovje koristim auto-fit naredbu koja samostalno
+slaže gridove, a min i max određuju veličine, kada je ekran naraste dovoljno
+da stanu 2 ili tri diva auto-fit će ih tamo ubaciti.*/
+.general-info{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+    grid-template-rows: repeat(auto-fit 3, 1fr);
+ /*   grid-template-areas: 
+    "pomoc"
+    "marke"
+    "tvrtka";*/
+    grid-gap: 10px 10px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.general-info h3{
+    font-size: 11px;
+    margin-bottom: 4px;
+    color: #121111;
+}
+.general-info a{
+    text-decoration: none;
+    color: gray;
+}
+.general-info a:hover{
+    color:#373737;
+}
+.general-info li{
+    text-decoration: none;
+    list-style: none;
+    margin-bottom: 4px;
+}
+.tvrtka{
+    
+    margin: 0 auto;
+}
+.marke{
+   
+    margin: 0 auto;
+}
+.pomoc{
+    
+    margin: 0 auto;
+}
+/*Izrada footera*/
+.loga-placanja{
+    text-align: center;
+}
+.loga-placanja img{
+    width: 40px;
+    margin: 10px;
+    margin-top:10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.loga-placanja img:last-child{
+    width: 60px;
+}
+.prava-copy li{
+    display: inline;
+    padding: 5px;
+}
+.prava-copy li a{
+    text-decoration: none;
+    color: gray;
+    border: 1px solid none;
+}
+.prava-copy a:hover{
+    border-bottom: 1px  solid #272626;
+}
+.prava-copy{
+    text-align: center;
+    color: gray;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+}
+.geotrust{
+    text-align: center;
+    margin: 10px;
+}
+.geotrust img{
+    width: 80px;
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 400px) and (max-width: 640px){
+    .general-info{
+        display: grid;
+        justify-content: center;
+        grid-template: repeat(2, 1fr)/repeat(2, 1fr);
+        grid-template-areas: 
+        "pomoc marke"
+        "tvrtka tvrtka";
+        grid-gap: 10px 10px;
+    }
+    .pomoc{
+        grid-area: pomoc;
+    }
+    .tvrtka{
+        grid-area: tvrtka;
+    }
+    .marke{
+        grid-area: marke;
+    }
+}
+
+
+/*Ponašanje na 700 px, dodao sam minmax kako bi se grid areas ponašali usklađeno i ne povečavali
+se previše a isto tako s tim minmaxom određujem veličinu kolone koja neostavlja onda prazno mjesto
+ne raste beskonačno, već ju onda kako ekran raste dodaje prazno mjesto s lijeve i desne strane
+*/
+@media (min-width:700px) {
+    /*Uređenje prvog izbornika tražilice i registrcije*/
+    .navbar-prvi{
+        display: block;
+        height: 40px;
+        padding: 10px;
+        text-transform: uppercase;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 10px;
+        line-height: 1.42857143;
+        color: #333;
+        letter-spacing: 1px;
+        font-weight: bold;
+        position: relative;
+        min-width: 500px;
+    }
+    .trazi{
+        display: inline;
+        float: left;
+    }
+    .trazi:hover{
+        color:gray;
+    }
+    .trazi p{
+        display: inline;
+    }
+    .izbornik-prvi{
+        display: inline;
+        float: right;
+    }
+    .izbornik-prvi li{
+        display: inline-block;
+        padding-left:4px;
+        padding-right: 4px;
+    }
+    .izbornik-prvi li:hover{
+        color:gray;
+    }
+    .izbornik-prvi p{
+        display: inline;
+    }
+    .fa{
+        font-size: 14px;
+    }
+    .fa-briefcase{
+        position: relative;
+        top: 1.5px;
+    }
+    /*Uređenje drugog izbornika glavnog, Mango Outlet*/
+    .navbar-drugi{
+        display: block;
+        text-align: center;
+        min-width: 550px;
+    }
+    .logo{
+        margin-top:5px;
+        
+    }
+    .izbornik-dva li{
+        display: inline-block;
+        padding: 1px;
+        margin-left:25px; 
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 12px;
+        line-height: 1.42857143;
+        color: #333;
+        font-weight: bold;
+        letter-spacing: 1px;
+        border: 1px solid #FFFFFF;
+    }
+    .izbornik-dva li:hover{
+        border-bottom: 1px solid #333;
+    }
+    /*Uređenje teksta sniženje*/
+    .content h1{
+        height: 200px;
+        line-height: 100px;
+        text-transform: uppercase;
+        font-size: 100px;
+        font-weight: bold;
+        position: relative;
+        top: 230px;
+        color: white;
+        width: 100%;
+    }
+    /*Grid a na 700px*/
+    .grid-a{
+        display: grid; 
+        grid-template: 80px 1fr 1fr /minmax(180px, 450px) minmax(180px, 450px);
+        grid-template-areas: 
+        "item-0 item-0"
+        "item-1 item-2" 
+        "item-3 item-4";
+        grid-gap: 10px 50px;
+        /*align-content: space-between;
+       /* justify-content: space-around;*/
+      /* margin: 50px 50px;*/
+    }
+    .images{
+        overflow: hidden;
+       /* max-width: 450px;
+        
+       /* height: 50%; s ovime mogu promjeniti visinu div u kojem su
+       slike probaj se s ovim igrat da se slike samo povečavaju 
+       bez povečanja diva*/  
+    }
+    .sale{
+       /* display: block;
+        margin-left: auto;
+        margin-right: auto;*/
+    }
+    /*Kako bi se slike povečavale ali da ne izlaze iz okvira, potrebno je gridovima
+    dati veličinu širine 100% ako želim da tako bude, kada stavim širinu njemu
+    onda mogu dati širinu i div koji su njegova djeca. Postavim širinu onda
+    div images da bude max-width koje želim, kako se nebi povečavao.
+    kod samog img  */
+    .img {
+        width: 100%;
+        height: 100%;
+        transition: all 2s ease;
+        transform: scale(1.0);
+    }
+    .img:hover{
+        -moz-transform: scale(1.3);
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+    }
+    .item-0{
+        grid-area:item-0;
+
+    }
+    .item-0 h3{
+        font-size: 15px;
+        line-height: 30px;
+    }
+    .item-0 p{
+        font-size: 16px;
+        line-height: 30px;
+    }
+    .item-1{
+        grid-area:item-1;
+        width: 100%;
+    }
+    .item-2{
+        grid-area:item-2;
+        width: 100%;
+    }
+    .item-3{
+        grid-area:item-3;  
+        width: 100%;
+        
+    }
+    .item-4{
+        grid-area:item-4;
+        width: 100%;
+    }
+/*Grid za info sekciju*/
+    .info-grid{
+        display: grid;
+        grid-template: 1fr / repeat(3, 1fr);
+        grid-gap: 10px 20px;
+        grid-template-areas:
+        "isporuka placanje povrat"; 
+        text-align: center;
+    }
+/*Grid koji upravlja s newsleter sekcijom*/
+    .newsletter-grid{
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-auto-columns: 1fr 1fr;
+        grid-template-areas: 
+        "newsletter newsletter"
+        "email email-button";
+        grid-gap: 5px;
+        max-width: 700px; 
+        margin: 100px auto 100px auto;
+    }
+    .newsletter-grid input[type=email]{
+        width: 100%;
+        padding: 10px;
+        color: gray;
+        border: none;
+        border-bottom: 1px solid gray;
+    }
+    .newsletter-grid input[type=button]{
+        width: 100%;
+        padding: 10px;
+        color: white;
+        background-color: black;
+        border: none;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-size: 12px; 
+    }
+    .email{
+        grid-area: email;
+        width: 100%;
+    }
+    .email-button{
+        grid-area: email-button;
+        width: 100%;
+    }
+
+}
+@media only screen and (min-width:950px) {
+      /*Pomicanje GeoTrust nakon 700px float right*/
+      .geotrust{
+        float: right;
+        margin: 10px;
+    }
+}
+
+/*Dovrši da se slike povečaju preko 100% kod 700px, da naslovni
+elementi Kupi sad itd budu fixni bez obzira na preskakanje u novi
+red, povečanje slike na hover treba ostaviti bog istim samo se 
+slika treba povečat ne i okvir.
+
+Provjeri kako staviti u sredinu cijeli grid kof 700px, i kako ograničiti slike
+se se nepovećavaju preko određene veličine.*/
