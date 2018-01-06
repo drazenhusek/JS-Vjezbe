@@ -3,12 +3,81 @@
     margin:0;
     padding: 0;
 }
-
-section{
+/*Zadatak 1 - izrada navbara koji se miče s ekrana kada kliknem div s ikonom x*/
+section {
     height: 400px;
     background-color: greenyellow;
     text-align: center;
 }
+.navbar{
+    position: absolute;
+    width: 200px;
+    background-color: #C0A0A0;
+    height: 600px;
+    margin-top: 50px; 
+    left: -170px;
+    transition-duration: 2s;
+}
+.nav{
+    margin-top: 100px;
+}
+.close{
+    position: relative;
+    top: 50px;
+    left: 80px;
+}
+.close i{
+    cursor: pointer;
+}
+/*Zadatak 2. Ispis s JS u HTML element.*/
+.zad{
+    background-color: #ccc;
+    text-align: center;
+}
+.ispis{
+    background-color: white;
+    padding: 10px;
+    border: 1px solid red;
+}
+.puni{
+    padding: 10px;
+    border: 1px solid green;
+    height: 200px;
+}
+
+/*Zadatak 3: Napravi program koji nakon unosa imena u input
+i klikneš input, program javlja "Hvala na registraciji" i u obliku
+je HTML-a i ima CSS stylove po želji. 
+Neka program ispiše i par string metoda i propertya za ime.*/
+
+/*Zadatak 4: Napravi na Mango stranci malu trgovinu tako da kada klikneš na
+artikl on ti ispiše kolika je cijena artikla s popustom.
+Iskoristi i par Number metoda i Math metode.*/
+
+/*Zadatak 5
+Ispiši na stranici par datuma uređenih, ispiši samo godinu, samo sate, itd.
+Probaj ispisati datum po kliku na određeni box.
+Probaj napraviti da kada dođe do određenog datuma da se na stranici nešto promjeni.
+Recimo popust poćinje od tolko i tolko sati pa se pojavi div s upisanim popustom.
+/*
+Zadatak 6
+Nadogradi zadatak 2 tako da div s x ostaje a navbar nestane i bude fixan.
+*/
+/*
+Zadatk 7 
+Napravi petlju koja prolazi kroz objekt koristeći ES6 novu perlju for of, a može stati
+i nastaviti. Kada stane neka taj objekt obradi doradi.
+*/
+
+/*Zadatak 8 
+Probaj napraviti navbar koji se smanjuje poslje skrolanja i povečava kada stanem.
+Napravi navbar koji nestane kod skrolanaja i pojavi se na vrhu kada stanem.
+Napravi div kojem se učita samo prvih 4 stavke, kada kliknem učitaj još on ućita još 4.
+Napravi program koji automatski učitava kako sa skrolanjem dođem do zadnjeg.
+*/
+
+
+/*Iput forma koja vrača što si upisao.*/
 section h1{
    padding-top: 30px;
    padding-bottom: 30px;

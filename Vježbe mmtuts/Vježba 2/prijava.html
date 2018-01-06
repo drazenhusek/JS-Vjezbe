@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/css.css">
+    <title>Prijava</title>
+</head>
+<!-- Poziv funkcije da prikazem ili sakrijem sekciju, mjenjam stil, a pozivam s
+onmousover i onmouseout -->
+<script>
+        function pokazi(){
+            document.getElementById('divpadajuci').style.display = 'block';
+            }
+        function sakrij(){
+            document.getElementById('divpadajuci').style.display = 'none';
+        }
+</script>
+<body>
+    <section class="discaunt">
+        <h4>Dodatnih 25 posto popusta na odjeću!</h4>
+    </section>
+    <section class="navbar-prvi">
+            <div class="trazi">
+                <i class="fa fa-search" onclick=""></i>
+                <input type="search" placeholder="Traži" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Traži'">
+            </div>
+            <div class="izbornik-prvi">
+                <ul>
+                    <li><a href="/prijava.html"> Registrirajte se</a></li><p>|</p>
+                    <li><a href="/prijava.html">Prijava</a></li><p>|</p>
+                    <li>Narudžbe</li><p>|</p>
+                    <li>Pomoć</li><p>|</p>
+                    <li><i class="fa fa-briefcase"></i></li>
+                </ul>
+            </div>
+    </section>
+    <section class="navbar-drugi">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="images/66.png" alt="" srcset="">
+                </a>
+            </div>
+            <ul class="izbornik-dva">
+                <li onmouseover="pokazi()" onmouseout="sakrij()">Žene</li>
+                <li onmouseover="pokazi()" onmouseout="sakrij()">Muškarci</li>
+                <li onmouseover="pokazi()" onmouseout="sakrij()">Djevojčice</li>
+                <li onmouseover="pokazi()" onmouseout="sakrij()">Dječaci</li>
+                <li onmouseover="pokazi()" onmouseout="sakrij()">Plus size veličine</li>
+            </ul>
+    </section>
+    <section id="divpadajuci" class="padajuci">
+            <ul>
+                <li>Raspordaja</li>
+
+            </ul>
+    </section>
+    <section class="prijava_registracija">
+        <div class="prijava_naslov">
+            <h3 onclick="prijava()">Prijava</h3>
+            <h3 onclick="registracija()">Registrirajte se</h3>
+        </div>
+
+
+        <article class="forma-prijava" id="formaprij">
+        <div class="scroll">
+                <input type="text" class="input" placeholder="E-pošta">
+                <input type="password" name="" id="" class="input" placeholder="Lozinka">
+        <div class="checkboxdiv">
+            
+                <div class="imgbox" onclick="roundbox()">
+                    <img src="./images/checkbox-uncheck.png" alt="" id="imgcheck1" class="imgcheck1">
+                    <img src="./images/checkbox-check.png" alt="" id="imgcheck2" class="imgcheck2">
+                    <input type="checkbox" name="" id="checkbox" class="checkbox-in-background">
+                </div>
+                <div class="checktext"> 
+                    <label for="checkbox">Ostani prijavljen </label>
+                    <a href="http://" class="prijava-info">+ info</a>
+                </div>
+        </div>
+                <input type="button" value="Unesi" class="inputb">
+        <div class="linkinprijava">
+                <a href="http://">Zaboravili ste lozinku?</a>
+        </div>
+        <div class="nemate">
+                <p>Nemate račun?</p>
+                <a href="http://">Registrirajte se</a>
+        </div>
+        </div>
+        </article>
+
+        <article class="forma-registrirajse" id="formreg">
+                <div class="registracija-text">
+                    <h3>Kreirajte račun i budite među prvima koji 
+                        će saznati o našim promocijama i novim lookbooks.
+                    </h3>
+                </div>
+                <div class="scroll">
+                        <input type="text" class="input" placeholder="E-pošta">
+                        <input type="password" name="" id="" class="input" placeholder="Lozinka">
+                <div class="checkboxdiv">
+                    
+                        <div class="imgbox" onclick="roundbox()">
+                            <img src="./images/checkbox-uncheck.png" alt="" id="imgcheck1" class="imgcheck1">
+                            <img src="./images/checkbox-check.png" alt="" id="imgcheck2" class="imgcheck2">
+                            <input type="checkbox" name="" id="checkbox" class="checkbox-in-background">
+                        </div>
+                        <div class="checktext"> 
+                            <label for="checkbox">Ostani prijavljen </label>
+                            <a href="http://" class="prijava-info">+ info</a>
+                        </div>
+                </div>
+                        <input type="button" value="Unesi" class="inputb">
+                <div class="linkinprijava">
+                        <a href="http://">Zaboravili ste lozinku?</a>
+                </div>
+                <div class="nemate">
+                        <p>Nemate račun?</p>
+                        <a href="http://">Registrirajte se</a>
+                </div>
+                </div>
+        </article>
+
+    </section>
+</body>
+<script>
+    let boxcheck=true;
+    function roundbox(){
+        if(boxcheck==true){
+            document.getElementById("imgcheck1").style.display = ("none"); 
+            document.getElementById("imgcheck2").style.display = ("inline"); 
+           let kontrola = document.getElementById("checkbox").checked = false;
+
+            console.log(kontrola);
+            boxcheck = false;
+            return boxcheck;
+            
+        }
+        else if (boxcheck == false){
+            document.getElementById("imgcheck1").style.display = ("inline"); 
+            document.getElementById("imgcheck2").style.display = ("none");
+            let kontrola = document.getElementById("checkbox").checked = true;
+
+            console.log(kontrola);
+            boxcheck= true;
+            return boxcheck;
+        }
+    }
+</script>
+<script>
+function prijava(){
+    document.getElementById("formaprij").style.display = ("block");
+    document.getElementById("formreg").style.display = ("none");
+}
+function registracija(){
+    document.getElementById("formreg").style.display = ("block");
+    document.getElementById("formaprij").style.display = ("none");
+}
+
+</script>
+
+</html>

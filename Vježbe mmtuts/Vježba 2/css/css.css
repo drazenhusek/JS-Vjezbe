@@ -3,6 +3,12 @@
     margin: 0;
     padding: 0;
 }
+
+a {
+        text-decoration: none;
+        color: #333;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
 /*Uređenje prvog odlomka*/
 .discaunt{
     min-width: 400px;
@@ -34,6 +40,8 @@
     position: relative;
     min-width: 500px;
 }
+
+/*Izrada tražilice i njenog ponašanja kada se klikne na ikonu i na nju.*/
 .trazi{
     display: inline;
     float: left;
@@ -42,9 +50,44 @@
 .trazi:hover{
     color:gray;
 }
-.trazi p{
+.trazi input{
     display: inline;
 }
+input[type=search]{
+    border: 1px solid white;
+    color: #272626;
+}
+input[type=search]:focus{
+    transition: 1s;
+    transition-timing-function: linear;
+    width: 150px;
+    border-bottom: 1px solid #272626;
+}
+
+/*Boja za placeholder*/
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:#272626;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#272626;
+    opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#272626;
+    opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:#272626;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color:#272626;
+}
+::placeholder { /* Most modern browsers support this now. */
+    color:#272626;;
+}
+
+
+
 .izbornik-prvi{
     display: inline;
     float: right;
@@ -70,19 +113,22 @@
 }
 /*Uređenje drugog izbornika glavnog, Mango Outlet*/
 .navbar-drugi{
-    display: none;
     text-align: center;
     min-width: 550px;
+    height: 80px;
+    display: none;
 }
 .logo{
     margin-top:5px;
     
 }
+.izbornik-dva ul{
+   
+}
 .izbornik-dva li{
-    display: inline-block;
+    display: inline;
     padding: 1px;
-    margin-left:25px; 
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     text-transform: uppercase;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 12px;
@@ -100,7 +146,8 @@
 .padajuci{
     display: none;
     position: absolute;
-    height: 500px;
+    left:0;
+    height: 400px;
     width: 100%;
     background-color: #FF5052;
     z-index: 10;
@@ -503,11 +550,256 @@ da stanu 2 ili tri diva auto-fit će ih tamo ubaciti.*/
     width: 80px;
 }
 
+/*Registracija i prijava - tu primjeti da ako .prijava_registracija stavim background
+on neće biti vidljiv kada kliknem onclick, pa sam naknadno stavio u artikle koji su unutar
+te sekcije i njima stavi bacground-color to je radilo dok sam s JS radio display block
+ako stavim samo display inline prestane raditi, pa sam u div scroll koji zaokružuje
+taj dip što se mijenja u njega sam stavio bacgraund i onda je proradilo.
+Očito ima neke veze s inline i block, pa zato nedohvača taj backgraund.*/
+.prijava_registracija{
+    text-decoration: none;
+    display: none;
+}
+.form-registrirajse{
+    
+}
+.form-prijava{
+}
+/*Dodavanje diva ispred mi omogućuje da sakrijem scroll bar a da i dalje bude efekt scroll*/
+.scroll{
+    height: 350px;
+    overflow-y: scroll;
+    background-color: #EEEEEE;
+    
+}
+/*Dodajem default stil svim a unutar ovog diva*/
+.prijava_registracija a{
+    text-decoration: none;
+    color: #8E8C8C;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+}
+/*Uređenje prvog diva koji ima naslove na koje se može kliknuti*/
+.prijava_naslov{
+    background-color: #EEEEEE;
+    height: 100px;
+    text-transform: uppercase;
+    border-bottom: 1px  solid #4D4D4D;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.prijava_naslov h3{
+    display: inline-block;
+    width: 175px;
+    position: relative;
+    top: 77px;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: 1px;
+}
+/*Defaultno ponašanje za inpute koji imaju tekst i pasword i stil za 
+placheolder*/
+.input{
+    padding: 5px;
+    display: block;
+    margin:  40px auto;
+    width: 350px;
+    color: #333;
+}
+::placeholder { /* Most modern browsers support this now. */
+    color: #8E8C8C;
+ }
+ /*Uređenje stilova inputa*/
+.prijava_registracija input[type=text]{
+    border: none;
+    border-bottom: 1px  solid #8E8C8C;
+    background-color: transparent;
+}
+.prijava_registracija input[type=password]{
+    border: none;
+    border-bottom: 1px  solid #8E8C8C;
+    background-color: transparent;
+}
+.prijava_registracija input[type=checkbox]{
+    padding: 10px;
+}
+.prijava_registracija label{
+    padding: 7px;
+    color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.prijava_registracija input[type=button]{
+    width: 350px;
+    height: 40px;
+    display: block;
+    margin: 15px auto 15px auto;
+    text-transform: uppercase;
+    padding: 10px;
+    font-weight: 400px;
+    letter-spacing: 2px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.prijava_registracija input[type=text]:focus, input[type=password]:focus{
+    border-bottom: 1px  solid #2D2C2C;
+}
+.prijava_registracija input[type=button]:hover{
+    background-color: #2D2C2C;
+}
+/*Uređenje diva s check boxom i ostalim tekstom*/
+.checkboxdiv{
+    position: relative;
+    text-align: none;
+    width: 350px;
+    height: 50px;
+    margin: 0px auto 0px auto;
+}
+/*Izrada stilova za check slike kad je check jedna je slika kad je nema druga je slika*/
+.imgbox{
+    display: inline;
+    height: 49%;
+    width: 100%;
+}
+.imgcheck1{
+    height: 80%;
+    display: inline;
+}
+.imgcheck2{
+    height: 80%;
+    display: none;
+}
+.checkbox-in-background{
+    display: none;
+}
 
+.checktext{
+    position: absolute;
+    top: 50%; 
+    left: 35%;
+    transform: translate(-50%,-50%);
+    display: inline;
+}
+/*Uređenje linka da se centrira*/
+.linkinprijava{
+    text-align: center;
+    margin: 10px;
+}
+/*Uređenje diva nemate račun*/
+.nemate{
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #8E8C8C;
+    
+}
+.nemate p{
+    display: inline;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding-right: 5px;
+    font-size: 14px;
+ 
+}
+.prijava-info:hover{
+    border-bottom: 1px solid #8E8C8C;
+}
 
+/*Izrada forme registriraj se*/
 
-
-
+.registracija-text{
+    padding-top: 35px;
+    text-align: center;
+    width: 350px;
+    margin:auto;
+    letter-spacing: 1px;
+    line-height: 20px;
+    font-family: mango-book,Arial;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #323438;
+    text-align: center;
+}
+.rights{
+    text-align: center;
+}
+.rights p{
+    display: inline-block;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding-right: 5px;
+    font-size: 14px;
+    width: 350px;
+    overflow: hidden;
+    letter-spacing: .5px;
+    font-size: 12px;
+    color: #6d6f71;
+}
+/* Izbor checkbox slike ŽENSKO ILI MUŠKO*/
+.womenorman{
+    margin: auto;
+    height: 50px;
+    width: 350px;
+}
+.label{
+    display: inline;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+   
+}
+/*Uređenje djela za žene i djela za muškarce*/
+.women-container{
+    width: 49%;
+    height: 100%;
+    position: relative;
+    display: inline-block;
+}
+.man-container{
+    width: 49%;
+    height: 100%;
+    position: relative;
+    display: inline-block;
+}
+/*veličina div-a u kojem su slike i opis*/
+.womenbox{
+    display: inline;
+}
+.womenbox img{
+    position: absolute;
+    top: 50%;
+    transform: translate(-0%,-50%);
+}
+.manbox{
+    display: inline;
+}
+.manbox img{
+    position: absolute;
+    top: 50%;
+    transform: translate(-0%,-50%);
+}
+/*Za Žensko zamjena slika*/
+.women-yes{
+    height: 80%;
+    display: inline;
+}
+.women-no{
+    height: 80%;
+    display: none;
+}
+.checkbox-women{
+    display: none;
+}
+/*Za Muško zamjena slika*/
+.man-yes{
+    height: 80%;
+    display: none;
+}
+.man-no{
+    height: 80%;
+    display: inline;
+}
+.checkbox-man{
+    display: none;
+}
 
 
 
@@ -600,6 +892,7 @@ ne raste beskonačno, već ju onda kako ekran raste dodaje prazno mjesto s lijev
         padding: 1px;
         margin-left:25px; 
         margin-bottom: 5px;
+        padding: 5px;
         text-transform: uppercase;
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 12px;

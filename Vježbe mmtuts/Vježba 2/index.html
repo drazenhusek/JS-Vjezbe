@@ -11,8 +11,14 @@
 <!-- Poziv funkcije da prikazem ili sakrijem sekciju, mjenjam stil, a pozivam s
 onmousover i onmouseout -->
 <script>
+        function timer(element){
+            let timer = setTimeout("pokazi()", 200);
+            element.onmouseout = function(){
+                clearTimeout(timer);
+            }
+        }
         function pokazi(){
-            document.getElementById('divpadajuci').style.display = 'block';
+            document.getElementById('divpadajuci').style.display = 'inline';
             }
         function sakrij(){
             document.getElementById('divpadajuci').style.display = 'none';
@@ -24,13 +30,14 @@ onmousover i onmouseout -->
     </section>
     <section class="navbar-prvi">
             <div class="trazi">
-                <i class="fa fa-search"></i>
-                <p>Traži</p>
+                <i class="fa fa-search" onclick=""></i>
+                <input type="search" placeholder="Traži" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Traži'">
             </div>
             <div class="izbornik-prvi">
                 <ul>
-                    <li>Registrirajte se</li><p>|</p>
-                    <li>Prijava</li><p>|</p>
+                    <li onclick="registracije()">Registrirajte se</li><p>|</p>
+                    <li onclick="prijave()">Prijava</li><p>|</p>
                     <li>Narudžbe</li><p>|</p>
                     <li>Pomoć</li><p>|</p>
                     <li><i class="fa fa-briefcase"></i></li>
@@ -39,23 +46,110 @@ onmousover i onmouseout -->
     </section>
     <section class="navbar-drugi">
             <div class="logo">
-                <img src="images/66.png" alt="" srcset="">
+                    <a href="./index.html">
+                        <img src="images/66.png" alt="" srcset="">
+                    </a>
             </div>
             <ul class="izbornik-dva">
-                <li onmouseover="pokazi()" onmouseout="sakrij()">Žene</li>
-                <li onmouseover="pokazi()" onmouseout="sakrij()">Muškarci</li>
-                <li onmouseover="pokazi()" onmouseout="sakrij()">Djevojčice</li>
-                <li onmouseover="pokazi()" onmouseout="sakrij()">Dječaci</li>
-                <li onmouseover="pokazi()" onmouseout="sakrij()">Plus size veličine</li>
+                <li onmouseenter="timer(this);" onmouseleave="sakrij()" >Žene
+                        <div class="padajuci" id="divpadajuci">Rasprodaja</div>
+                </li>
+                <li onmouseenter="timer(this);" onmouseleave="sakrij()">Muškarci
+                        <div class="padajuci" id="divpadajuci">Muškarci</div>
+                </li>
+                <li onmouseenter="timer(this);" onmouseleave="sakrij()">Djevojčice
+                        <div class="padajuci" id="divpadajuci">Djevojčice</div>
+                </li>
+                <li onmouseenter="timer(this);" onmouseleave="sakrij()">Dječaci
+                        <div class="padajuci" id="divpadajuci">Dječaci</div>
+                </li>
+                <li onmouseenter="timer(this);" onmouseleave="sakrij()">Plus size veličine
+                        <div class="padajuci" id="divpadajuci">Rasprodaja</div>
+                </li>
             </ul>
     </section>
-    <section id="divpadajuci" class="padajuci">
-            <ul>
-                <li>Raspordaja</li>
 
-            </ul>
-    </section>
-    <section class="wall">
+    <section class="prijava_registracija" id="contractform">
+            <div class="prijava_naslov">
+                <h3 onclick="prijave()" id="h3prijave">Prijava</h3>
+                <h3 onclick="registracije()" id="h3registracija">Registrirajte se</h3>
+            </div>
+
+        <article class="form-prijava" id="formprij">
+            
+            <div class="scroll" id="scroll">
+                
+                    <input type="text" class="input" placeholder="E-pošta">
+                    <input type="password" name="" id="" class="input" placeholder="Lozinka">
+                
+            <div class="checkboxdiv">
+                
+                    <div class="imgbox" onclick="roundbox()">
+                        <img src="./images/checkbox-uncheck.png" alt="" id="imgcheck1" class="imgcheck1">
+                        <img src="./images/checkbox-check.png" alt="" id="imgcheck2" class="imgcheck2">
+                        <input type="checkbox" name="" id="checkbox" class="checkbox-in-background">
+                    </div>
+                    <div class="checktext"> 
+                        <label for="checkbox">Ostani prijavljen </label>
+                        <a href="http://" class="prijava-info">+ info</a>
+                    </div>
+            </div>
+                    <input type="button" value="Unesi" class="inputb">
+            <div class="linkinprijava">
+                    <a href="http://">Zaboravili ste lozinku?</a>
+            </div>
+            <div class="nemate">
+                    <p>Nemate račun?</p>
+                    <a href="http://">Registrirajte se</a>
+            </div>
+            </div>
+          
+            </article>
+    
+            <article class="form-registrirajse" id="formreg">
+                    <div class="scroll">
+                            <div class="registracija-text">
+                                    <p>Kreirajte račun i budite među prvima koji 
+                                        će saznati o našim promocijama i novim lookbooks.
+                                    </p>
+                            </div>
+                            <input type="text" class="input" placeholder="Ime*" id="Ime">
+                            <input type="text" class="input" placeholder="Prezime*" id=Prezime>
+                            <input type="text" class="input" placeholder="E-pošta*" id="email">
+                            <input type="password" name="" id="Password*" class="input" placeholder="Lozinka">
+                            <input type="text" class="input" placeholder="Mobilni telefon*" id="Mobile-number">
+                            
+                            <input type="text" class="input" placeholder="Poštanski broj*" id="Post-number">
+
+
+                    <div class="womenorman">
+                        <div class="women-container">
+                            <div class="womenbox" onclick="women()">
+                                <img src="./images/checkbox-uncheck.png" alt="" id="women-yes" class="women-yes">
+                                <img src="./images/checkbox-check.png" alt="" id="women-no" class="women-no">
+                                <input type="checkbox" name="" id="checkbox" class="checkbox-women">
+                            </div>
+                            <div class="label women"><label for="women">Žensko</label></div>
+                        </div>
+                        <div class="man-container">
+                            <div class="manbox" onclick="man()">
+                                    <img src="./images/checkbox-uncheck.png" alt="" id="man-yes" class="man-yes">
+                                    <img src="./images/checkbox-check.png" alt="" id="man-no" class="man-no">
+                                    <input type="checkbox" name="" id="checkbox" class="checkbox-man">
+                                </div>
+                                <div class="label man"><label for="man">Muško</label></div>
+                        </div>
+                    </div>
+                            <input type="button" value="Kreiraj račun" class="inputb" id="create-accaunt">
+                 
+                    <div class="rights">
+                            <p>Klikom na 'Kreiraj račun' prihvaćate naša <a href="http://">pravila o povjerljivosti podataka.</a></p>
+                    </div>
+                    </div>
+            </article>
+    
+        </section>
+    <section class="wall" id="wall">
         <div class="content">
         <h3>Zimska rasprodaja</h3>
         <h1> Do 70% sniženo</h1>
@@ -64,7 +158,7 @@ onmousover i onmouseout -->
         </div>
     </section>
 
-    <section class="sale">
+    <section class="sale" id="sale">
         <div class="grid-a">
             <div class="item-0">
                 <h3>Naši najbolji stilovi na rasprodaji</h3>
@@ -100,7 +194,7 @@ onmousover i onmouseout -->
         </div>
     </section>
 
-    <section class="info-grid">
+    <section class="info-grid" id="info">
         <div class="isporuka">
             <img src="images/priv_troubleshooting_featured.png" alt="" class="info-slike">
             <h3>Isporuka</h3>
@@ -117,7 +211,7 @@ onmousover i onmouseout -->
             <p>Povrat putem poš</p>
         </div>
     </section>
-    <section class="newsletter-grid">
+    <section class="newsletter-grid" id="newsletter">
             <div class="newsletter">
             <h2>newsletter</h2>
             <p>Pretplatite se na naš 
@@ -131,7 +225,7 @@ onmousover i onmouseout -->
             <input type="button" value="Prijavi se" class="newsletter-button">
             </div>
     </section>
-    <section class="jezici">
+    <section class="jezici" id="jezici">
         <div class="jezici-float">
         <div class="drzava">
         <a href="http://" class="link-velika">Hrvatska</a> <a href="">|</a> 
@@ -144,7 +238,7 @@ onmousover i onmouseout -->
         </div>
         </div>
     </section>
-    <section class="general-info">
+    <section class="general-info" id="general-info">
         <div class="pomoc">
             	<ul>
                     <h3>Pomoć</h3>
@@ -171,7 +265,7 @@ onmousover i onmouseout -->
                     </ul>
         </div>
     </section>
-    <footer>
+    <footer id="footer">
         <div class="loga-placanja">
             <img src="images/visa@2x.png" alt="">
             <img src="images/visaelectron@2x.png" alt="">
@@ -195,7 +289,101 @@ onmousover i onmouseout -->
             <img src="images/geotrust@2x.png" alt="">
         </div>
     </footer>
-
 </body>
+<script>
+    function prijave(){
+        document.getElementById("contractform").style.display = ("inline");
+        document.getElementById("wall").style.display = ("none");
+        document.getElementById("info").style.display = ("none");
+        document.getElementById("newsletter").style.display = ("none");
+        document.getElementById("jezici").style.display = ("none");
+        document.getElementById("sale").style.display = ("none");
+        document.getElementById("footer").style.display = ("none");
+        document.getElementById("general-info").style.display = ("none");
+        document.getElementById("formreg").style.display = ("none");
+        document.getElementById("formprij").style.display = ("inline");
+        document.getElementById("h3prijave").style.borderBottom =("3px solid #393838")
+        document.getElementById("h3registracija").style.borderBottom =("none")
+    }
+    function registracije(){
+        document.getElementById("contractform").style.display = ("inline");
+        document.getElementById("wall").style.display = ("none");
+        document.getElementById("info").style.display = ("none");
+        document.getElementById("newsletter").style.display = ("none");
+        document.getElementById("jezici").style.display = ("none");
+        document.getElementById("sale").style.display = ("none");
+        document.getElementById("footer").style.display = ("none");
+        document.getElementById("general-info").style.display = ("none");
+        document.getElementById("formprij").style.display = ("none");
+        document.getElementById("formreg").style.display = ("inline");
+        document.getElementById("h3prijave").style.borderBottom =("none")
+        document.getElementById("h3registracija").style.borderBottom =("3px solid #393838")
+        
+    }
+
+</script>
+<script>
+        let boxcheck=true;
+        function roundbox(){
+            if(boxcheck==true){
+                document.getElementById("imgcheck1").style.display = ("none"); 
+                document.getElementById("imgcheck2").style.display = ("inline"); 
+                let kontrola = document.getElementById("checkbox").checked = false;
+    
+                console.log(kontrola);
+                boxcheck = false;
+                return boxcheck;
+                
+            }
+            else if (boxcheck == false){
+                document.getElementById("imgcheck1").style.display = ("inline"); 
+                document.getElementById("imgcheck2").style.display = ("none");
+                let kontrola = document.getElementById("checkbox").checked = true;
+    
+                console.log(kontrola);
+                boxcheck= true;
+                return boxcheck;
+            }
+        }
+    </script>
+    <script>
+        let checksex = true;
+        function women(){
+            if(checksex == true){
+                document.getElementById("women-yes").style.display = ("inline");
+                document.getElementById("women-no").style.display = ("none");
+                document.getElementById("man-yes").style.display = ("none");
+                document.getElementById("man-no").style.display = ("inline");
+                checksex = false;
+                return checksex;
+            } else if(checksex == false){
+                document.getElementById("women-no").style.display = ("none");
+                document.getElementById("women-yes").style.display = ("inline");
+                document.getElementById("man-yes").style.display = ("none");
+                document.getElementById("man-no").style.display = ("inline");
+            
+                checksex = true;
+                return checksex;
+            }
+        }
+        function man(){
+            if(checksex == true){
+                document.getElementById("man-yes").style.display = ("inline");
+                document.getElementById("man-no").style.display = ("none");
+                document.getElementById("women-yes").style.display = ("none");
+                document.getElementById("women-no").style.display = ("inline");
+                checksex = false;
+                return checksex;
+            } else if(checksex == false){
+                document.getElementById("man-no").style.display = ("none");
+                document.getElementById("man-yes").style.display = ("inline")
+                document.getElementById("women-yes").style.display = ("none");
+                document.getElementById("women-no").style.display = ("inline");
+                checksex = true;
+                return checksex;
+            }
+        }
+
+    </script>
 
 </html>

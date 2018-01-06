@@ -4,14 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/css.css">
     <title>JS Vježbe</title>
 
 <!-- Izrada forme koja ovisno o izboru odgovara i sklapa odgovor.-->
 </head>
-<body>
-<section>
+<script class="zadatak1">
+    let check=true;
+function closenav(){
+    if(check == true){
+        document.getElementById("navbar").style.left = "0px";
+        check = false;
+        return check;
+    } else if(check == false){
+        document.getElementById("navbar").style.left = "-170px";
+        check = true;
+        return check;
+    }
+}
 
+function vremenska(){
+    setTimeout(
+        function(){    
+            document.getElementById("navbar").style.left = "0px";
+            check = false;
+            return check;}, 000);
+}
+</script>
+<script>
+    function ispis(){
+        document.getElementById("demo").innerHTML = "Paragraph changed!";
+        document.getElementById("box").innerHTML = "Paragraph changed!";
+
+    }
+</script>
+<body onload="vremenska()">      
+
+<section class="zad">
+                <div class="ispis">
+                        <p id="demo">Click me to change my HTML content (innerHTML).</p>
+                        
+                        <p id="box">Unesi ime</p>
+                        <input type="text" name="" id="">
+                        <input type="submit" value="Submit" id="unos" onclick="ispis()">
+                        
+                </div>
+            
+</section>
+<div class="puni" id="puni">
+        <p onclick="ispis()">Upisao si:</p>
+</div>
+
+<section class="navbar" id="navbar">
+    <div class="close">
+            <i onclick="closenav()" class="fa fa-close"></i>
+    </div>
+    <div class="nav">
+        <ul>
+            <li>Izbornik 1</li>
+            <li>Izbornik 1</li>
+            <li>Izbornik 1</li>
+            <li>Izbornik 1</li>
+            <li>Izbornik 1</li>
+            <li>Izbornik 1</li>
+        </ul>
+    </div>
+</section>
+
+
+<section>
 </section>
     <article class="contract">
         <form>
